@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+			function choice(){
+			var firstChoice = document.getElementById('txtOne').value;
+			var secondChoice = document.getElementById('txtTwo').value;
+			var thirdChoice = document.getElementById('txtThree').value;
+			
+			var randNum = Math.floor(Math.random()*3+1);
+			
+			if (randNum==1){
+				document.getElementById('txtStat').innerHTML = document.getElementById('txtOne').value;
+				myReset();
+			}else if (randNum==2){
+				document.getElementById('txtStat').innerHTML = document.getElementById('txtTwo').value;
+				myReset();
+			}else if (randNum==3){
+				document.getElementById('txtStat').innerHTML = document.getElementById('txtThree').value;
+				myReset();
+			}
+			
+			function myReset(){
+				document.getElementById('txtOne').value = "";
+				document.getElementById('txtTwo').value = "";
+				document.getElementById('txtThree').value = "";
+			}
+		}
+		</script>
+</head>
+<style>
+@font-face {
+    font-family: 'boldboldregular';
+    src: url('bold_pw-webfont.eot');
+    src: url('bold_pw-webfont.eot?#iefix') format('embedded-opentype'),
+         url('bold_pw-webfont.woff2') format('woff2'),
+         url('bold_pw-webfont.woff') format('woff'),
+         url('bold_pw-webfont.ttf') format('truetype'),
+         url('bold_pw-webfont.svg#boldboldregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+.container p{
+font-family: 'boldboldregular';
+box-shadow: 5px 5px 5px black;
+}
+.nav li{
+font-family: 'boldboldregular';
+
+}
+{
+background-repeat:no-repeat;
+background-size:100% 150%;
+text-align:center;
+}
+
+.col-lg-12{
+background: #fceabb; /* Old browsers */
+background: -moz-linear-gradient(top,  #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fceabb), color-stop(50%,#fccd4d), color-stop(51%,#f8b500), color-stop(100%,#fbdf93)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 ); /* IE6-9 */
+
+height: 500px;
+}
+
+</style>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kainan Sa Gapo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/round-about.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+ <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Random</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" align="center">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="main.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="list.html">List Of Restaurants</a>
+                    </li>
+                    <li>
+                        <a href="play.html">Random</a>
+                    </li>
+					 <li>
+                        <a href="map.html">Map</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+        <!-- Random Row -->
+     <section id="contact">
+       <div class="col-lg-12 text-center">
+	   <br><br>
+            <h2>Let's Eat</h2>
+			<input type = "text"  id="txtOne" placeholder="Enter First Choice"><br><br>
+			<input type = "text"  id="txtTwo" placeholder="Enter Second Choice"><br><br>
+			<input type = "text"   id="txtThree" placeholder="Enter Third Choice"><br><br><br>
+			<button onClick="choice()">Choose</button> <br><br>
+			<h1 id="txtStat" style="text-align:center">Choice</h1> <br>
+			  <ul class="nav navbar-nav">
+                    <li>
+                        <a href="map.html">View Location</a>
+                    </li>
+		</div>
+                  
+    </section>
+
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

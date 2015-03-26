@@ -1,0 +1,81 @@
+<!DOCTYPE html />
+<html>
+<head>
+<style>
+.map{
+background: #fceabb; /* Old browsers */
+background: -moz-linear-gradient(top,  #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fceabb), color-stop(50%,#fccd4d), color-stop(51%,#f8b500), color-stop(100%,#fbdf93)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 ); /* IE6-9 */
+
+
+height: 500px;
+}
+</style>
+<title>Google maps Multiple Marker Demo - trinity tuts</title>
+<link href='http://fonts.googleapis.com/css…' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript">
+var markers = [
+['Coco Lime', 15.508177, 119.969781],
+['Seafood By The Bay', 14.820415, 120.275751],
+['Sams Pizza', 14.829455, 120.281564],
+['Meat Plus Cafe', 14.818120, 120.283434],
+['Gerrys Grill',14.818045, 120.279264],
+['Lighthouse Marina Resort',14.815065, 120.326254],
+['Playa Papagayo Beach Inn and Restaurant',14.897688, 120.23628],
+['Mini Kongs Express',14.826650, 120.283437],
+['Jade Hotel and Restaurant',14.829455, 120.281564],
+['Maxs',14.829455, 120.281564],
+['Ricos',14.832095, 120.27909],
+['Coffee Shop',14.824786, 120.293365],
+['The Aristocrat',15.508177, 119.969781],
+['Andoks',14.827284, 120.28228],
+['KFC',14.838630, 120.284202],
+['Starbucks Coffee',14.838630, 120.284202],
+['Yellow Cab Pizza',14.819128, 120.283527],
+['Wimpys',14.824786, 120.293365],
+['Chowking',14.823799, 120.290279],
+['Hotshots',14.820780, 120.282462]
+];
+
+function initializeMaps() {
+var myOptions = {
+disableDefaultUI: true,
+mapTypeId: google.maps.MapTypeId.ROADMAP,
+mapTypeControl: false
+};
+var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+var infowindow = new google.maps.InfoWindow();
+var marker, i;
+var bounds = new google.maps.LatLngBounds();
+
+for (i = 0; i < markers.length; i++) {
+var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+bounds.extend(pos);
+marker = new google.maps.Marker({
+position: pos,
+map: map
+});
+google.maps.event.addListener(marker, 'click', (function(marker, i) {
+return function() {
+infowindow.setContent(markers[i][0]);
+infowindow.open(map, marker);
+}
+})(marker, i));
+}
+map.fitBounds(bounds);
+}
+</script>
+</head>
+<div class = "map">
+<body onLoad="initializeMaps()">
+<div id="map_canvas" style="width:100%; height:400px"></div> <br><br>
+<a href="main.html">Home</a>
+
+</body>
+</html> 
